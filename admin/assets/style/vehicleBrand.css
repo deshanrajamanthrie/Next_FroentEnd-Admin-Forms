@@ -1,0 +1,33 @@
+#vehicle-2ndPage{
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 100vh;
+    background-image: url("../img/Capture.PNG");
+   /* background-color: #c4c8cb;*/
+    bottom: 146px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#tbl-VehicleBrand {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tbl-VehicleBrand td, #tbl-VehicleBrand th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tbl-VehicleBrand tr:nth-child(even){background-color: #f2f2f2;}
+
+#tbl-VehicleBrand tr:hover {background-color: #ddd;}
+
+#tbl-VehicleBrand th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #146262;
+    color: white;
+}

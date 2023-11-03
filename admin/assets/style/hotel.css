@@ -1,0 +1,56 @@
+#hotel-1stPage {
+   /* position: relative;*/
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 100vh;
+    background-image: url("../img/Capture.PNG");
+    bottom: 146px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.all-topic{
+    font-size: 2rem;
+    padding-left: 6px;
+    padding-top: 15px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #041A59;
+    padding-bottom: 19px;
+}
+.downSection{
+    margin-top: 24px;
+    /*border: 1px solid;*/
+    height: 51vh;
+}
+#tbl-hotel {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tbl-hotel td, #tbl-hotel th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tbl-hotel tr:nth-child(even){background-color: #f2f2f2;}
+
+#tbl-hotel tr:hover {background-color: #ddd;}
+
+#tbl-hotel th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #146262;
+    color: white;
+}
+.downSection{
+   /* display: block;*/
+    white-space: nowrap;
+    overflow: auto;
+}
+
+
+
+
+

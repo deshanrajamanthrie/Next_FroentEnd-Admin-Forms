@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AdminPage</title>
+    <link rel="stylesheet" href="./assets/boostrap/css/bootstrap.css">
+
+    <link rel="stylesheet" href="./assets/style/nav.css">
+    <link rel="stylesheet" href="./assets/style/hotel.css">
+    <link rel="stylesheet" href="./assets/style/vehicleBrand.css">
+    <link rel="stylesheet" href="./assets/style/guideManage.css">
+    <link rel="stylesheet" href="./assets/style/customer.css">
+    <link rel="stylesheet" href="./assets/style/packageCategory.css">
+    <link rel="stylesheet" href="./assets/style/travelCategory.css">
+    <link rel="stylesheet" href="./assets/style/vehicleCategory.css">
+    <link rel="stylesheet" href="./assets/style/booking.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</head>
+<body>
+
+
+</header>
+<div class="sidebar">
+    <div class="imgbox">
+        <img class="user-image" src="./assets/img/user.png" alt="user">
+        <p>Deshan Rajamanthrie</p>
+    </div>
+
+    <a href="#home" id="home-selector">Home</a>
+    <a href="#hotel" id="hotel-selector">Hotel </a>
+    <a href="#brand" id="vehicle-selector">Vehicle Brands</a>
+    <a href="#guide" id="guide-selector">Guide</a>
+    <a href="#customer" id="customer-selector">Customers</a>
+    <a href="#packageCategory" id="package-selector">Package Category</a>
+    <a href="#travelCategory" id="travel-selector">Travel Category</a>
+    <a href="#VehicleCategory" id="vehicle-category-selector">Vehicle Category</a>
+    <a href="#Booking" id="booking-selector">Booking</a>
+    <a href="#logOut">Log Out</a>
+
+</div>
+
+<main id="hotel-1stPage">
+    <section>
+        <div class="all-topic">HOTEL MANAGE</div>
+        <div class="row">
+            <div class="col">
+                <input type="text" id="txtHotel-id" class="form-control" placeholder="Hotel Id" aria-label="Hotel Id">
+            </div>
+            <div class="col">
+                <input type="text" id="txtHotel-name" class="form-control" placeholder="Hotel Name"
+                       aria-label="Hotel Name">
+            </div>
+            <div class="col">
+                <input type="text" id="txtStarRate" class="form-control" placeholder="Star Rate" aria-label="Star Rate">
+            </div>
+            <div class="col">
+                <input type="text" id="txtHotelLocation" class="form-control" placeholder="Location"
+                       aria-label="Location">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <input type="text" id="txtHotelEmail" class="form-control" placeholder="E-Mail" aria-label="E-Mail">
+            </div>
+            <div class="col">
+                <input type="text" id="txtContactNum1" class="form-control" placeholder="Contact Num 1"
+                       aria-label="Contact Num 1">
+            </div>
+            <div class="col">
+                <input type="text" id="txtContactNum2" class="form-control" placeholder="Contact Num 2"
+                       aria-label="Contact Num 2">
+            </div>
+            <div class="col">
+                <input type="text" id="txtPetsAllow" class="form-control" placeholder="Pets Allow"
+                       aria-label="Pets Allow">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <input type="text" id="txtHotelOp1" class="form-control" placeholder="Opt-1  [LKR]"
+                       aria-label="Opt-1  [LKR]">
+            </div>
+            <div class="col">
+                <input type="text" id="txtHotelOp2" class="form-control" placeholder="Opt-2  [LKR]"
+                       aria-label="Opt-2  [LKR]">
+            </div>
+            <div class="col">
+                <input type="text" id="txtHotelOp3" class="form-control" placeholder="Opt-3  [LKR]"
+                       aria-label="Opt-3  [LKR]">
+            </div>
+            <div class="col">
+                <input type="text" id="txtHotelOp4" class="form-control" placeholder="Opt-4  [LKR]"
+                       aria-label="Opt-4  [LKR]">
+            </div>
+        </div>
+        <div class="button-group mt-2 ">
+            <button id="btn-save-hotel" type="button" class="btn btn-primary" style="width: 80px">Save</button>
+            <button id="btn-update-hotel" type="button" class="btn btn-success">Update</button>
+            <button id="btn-search-hotel" type="button" class="btn btn-dark">Search</button>
+            <button id="btn-delete-hotel" type="button" class="btn btn-danger">Delete</button>
+        </div>
+    </section>
+    <section class="downSection">
+        <table id="tbl-hotel">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Star Rate</th>
+                <th>Location</th>
+                <th>E-Mail</th>
+                <th>Contact-1</th>
+                <th>Contact-2</th>
+                <th>Pets Allow</th>
+                <th>Opt-1</th>
+                <th>Opt-2</th>
+                <th>Opt-3</th>
+                <th>Opt-4</th>
+            </tr>
+            <tbody id="tbl-hotel-body">
+            <!--<tr>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+               </tr>-->
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<!--VehicleBrand-->
+
+<main id="vehicle-2ndPage">
+    <section>
+        <div class="all-topic">VEHICLE MANAGE</div>
+
+        <div class="row">
+            <div class="col">
+                <input type="text" id="txtbrandName" class="form-control" placeholder="Vehicle Brand Name"
+                       aria-label="Vehicle Brand Name">
+            </div>
+            <div class="col ">
+                <input type="text" id="txtseatCapacity" class="form-control" placeholder="Seating Capacity"
+                       aria-label="Seating Capacity">
+            </div>
+            <div class="col">
+                <input type="text" id="txtvehicleQty" class="form-control" placeholder="Vehicle Qty"
+                       aria-label="Vehicle Qty">
+            </div>
+            <div class="col">
+                <input type="text" id="txtfuelType" class="form-control" placeholder="Fuel Type" aria-label="Fuel Type">
+            </div>
+        </div>
+        <!---->
+        <div class="row mt-3">
+            <div class="col ">
+                <input type="text" class="form-control" id="txtfee1km" placeholder="Fee For 1 km (LKR)"
+                       aria-label="Fee For 1 km ">
+            </div>
+            <div class="col">
+                <input type="text" id="txtfuelConsumption" class="form-control" placeholder="Fuel Consumption (km/l)"
+                       aria-label="Fuel Consumption km/l">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" id="txtfeeOneday" placeholder="Fee For One Day (LKR)"
+                       aria-label="Fee For One Day (LKR)">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" id="txtvehicleCategory" placeholder="Vehicle Category"
+                       aria-label="Vehicle Category">
+            </div>
+        </div>
+    </section>
+    <section class="row">
+        <div class="col mt-3">
+            <input type="text" class="form-control" style="border: 2px solid #0707ea" id="txtvehicleIdsearch"
+                   placeholder="Search Vehicle"
+                   aria-label="Search Vehicle">
+        </div>
+        <div class="button-group mt-3 col">
+            <button type="button" id="btn-save-vehicle" class="btn btn-primary" style="width: 80px">Save</button>
+            <button type="button" id="btn-update-vehicle" class="btn btn-success">Update</button>
+            <button type="button" id="btn-search-vehicle" class="btn btn-dark">Search</button>
+            <button type="button" id="btn-delete-vehicle" class="btn btn-danger">Delete</button>
+        </div>
+    </section>
+    <section class="downSection">
+        <table id="tbl-VehicleBrand">
+            <tr>
+                <th>Id</th>
+                <th>Brand</th>
+                <th>Seat</th>
+                <th>Vehicle Qty</th>
+                <th>Fuel Type</th>
+                <th>Fee For 1km [LKR]</th>
+                <th>Fuel Consumption[km/l]</th>
+                <th>Fee For One Day</th>
+                <th>Vehicle Category ID</th>
+            </tr>
+            <tbody id="tbl-VehicleBrand-tbody">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+
+</main>
+
+<!--Guide Manage-->
+<main id="guide-3rdPage">
+    <section>
+        <div class="all-topic">GUIDE MANAGE</div>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" id="txtGuideId" placeholder="Guide Id"
+                       aria-label="Guide Id">
+            </div>
+            <div class="col ">
+                <input type="text" class="form-control" id="txtGuideName" placeholder="Guide Name"
+                       aria-label="Guide Name">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" id="txtGuideNic" placeholder="Guide NIC" aria-label="Guide NIC">
+            </div>
+        </div>
+        <!--2-->
+        <div class="row mt-3">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Contact Number" id="txtGuideNum1"
+                       aria-label="Contact Number">
+            </div>
+            <div class="col ">
+                <input type="text" class="form-control" placeholder="Guide Address" id="txtGuideAddress"
+                       aria-label="Guide Address">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Guide Payment" id="txtGuideValue"
+                       aria-label="Guide Payment">
+            </div>
+        </div>
+        <div class="button-group mt-2 ">
+            <button type="button" id="btn-saveGuide" class="btn btn-primary" style="width: 80px">Save</button>
+            <button type="button" id="btn-updateGuide" class="btn btn-success">Update</button>
+            <button type="button" id="btn-searchGuide" class="btn btn-dark">Search</button>
+            <button type="button" id="btn-deleteGuide" class="btn btn-danger">Delete</button>
+        </div>
+    </section>
+    <section class="downSection">
+        <table id="tbl-Guide">
+            <tr>
+                <th>Id</th>
+                <th>Guide Name</th>
+                <th>NIC</th>
+                <th>Contact Num</th>
+                <th>Address</th>
+                <th>Payment For 1 day</th>
+
+            </tr>
+            <tbody id="tbl-Guide-tbody">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<!--Customer Manage-->
+<main id="customers-4thPage">
+    <section>
+        <div class="all-topic">CUSTOMER MANAGE
+        </div>
+        <div class="row">
+            <div class="col w-auto">
+                <input type="text" id="txtCustomerId" class="form-control" placeholder="Search Customer"
+                       aria-label="Search Customer">
+
+            </div>
+            <div class="col">
+                <button type="button" id="btn-customer-search-" class="btn btn-dark">Search</button>
+            </div>
+        </div>
+    </section>
+    <section class="downSection mt-5">
+        <table id="tbl-Customer">
+            <tr>
+                <th>UserId</th>
+                <th>User Name</th>
+                <th>NIC</th>
+                <th>Address</th>
+                <th>E-Mail</th>
+
+            </tr>
+            <tbody id="tbl-customer-body">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+
+<main id="package-Category">
+    <section>
+        <div class="all-topic">PACKAGE CATEGORY</div>
+    </section>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" id="txtPackageId" placeholder="Package Id"
+                   aria-label="Package Id">
+            <p id="error-type-mainPackagecategory" class="letters-errs-define error-display"></p>
+        </div>
+        <div class="col ">
+            <input type="text" class="form-control" id="txtPackageName" placeholder="Category Name"
+                   aria-label="Category Name">
+        </div>
+        <div class="col">
+            <button type="button" id="btn-Package-save" class="btn btn-primary" style="width: 80px">Save</button>
+            <button type="button" id="btn-Package-update" class="btn btn-success">Update</button>
+            <button type="button" id="btn-Package-Delete" class="btn btn-danger">Delete</button>
+        </div>
+    </div>
+    <section class="downSection mt-5">
+        <table id="tbl-package">
+            <tr>
+                <th>Package Id</th>
+                <th>Package Name</th>
+            </tr>
+            <tbody id="tbl-package-body">
+            <tr>
+                <td></td>
+                <td></td><!--   <td></td>-->
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<!---->
+<main id="travel-Category">
+    <section>
+        <div class="all-topic">TRAVEL CATEGORY
+        </div>
+        <div class="row">
+            <div class="col w-auto">
+                <input type="text" class="form-control" placeholder="Search Travel"
+                       aria-label="Search Travel">
+            </div>
+            <div class="col">
+                <button type="button" id="btn-travel-search" class="btn btn-dark">Search</button>
+            </div>
+        </div>
+    </section>
+    <section class="downSection mt-5">
+        <table id="tbl-travelCategory">
+            <tr>
+                <th>Id</th>
+                <th>Travel Area</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Count Days</th>
+                <th>Guide</th>
+                <th>Child No</th>
+                <th>Adult No</th>
+                <th>Head Count</th>
+                <th>Payment</th>
+                <th>Package Category</th>
+            </tr>
+            <tbody id="tbl-travel-tbody">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<main id="vehicle-Category">
+    <section>
+        <div class="all-topic">VEHICLE CATEGORY</div>
+        <div class="row">
+            <div class="col w-auto">
+                <input type="text" class="form-control" id="txtVehicleCategoryId" placeholder="Vehicle Category Id"
+                       aria-label="Vehicle Category Id" disabled>
+
+            </div>
+            <div class="col w-auto">
+                <input type="text" class="form-control" id="txtVehicleCategoryType" placeholder="Vehicle Category"
+                       aria-label="Vehicle Category">
+                <p id="error-type-category" class="letters-errs-define error-display"></p>
+
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary" id="btn-save-vehicleCategory" style="width: 80px">Save
+                </button>
+                <button type="button" class="btn btn-success" id="btn-update-vehicleCategory">Update</button>
+                <button type="button" class="btn btn-danger" id="btn-delete-vehicleCategory">Delete</button>
+
+            </div>
+        </div>
+    </section>
+    <section class="downSection mt-5">
+        <table id="tbl-vehicleCategory">
+            <tr>
+                <th>Package Id</th>
+                <th>Package Name</th>
+            </tr>
+            <tbody id="tbl-vehicleCategory-tbody">
+            <tr>
+                <td></td>
+                <td></td><!--   <td></td>-->
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<main id="booking-lastPage">
+    <section>
+        <div class="all-topic">BOOKING SECTION</div>
+        <div class="row">
+            <div class="col w-auto">
+                <input type="text" class="form-control" placeholder="Search Booking" id="txt-searchBoooking"
+                       aria-label="Search Booking">
+            </div>
+            <div class="col">
+                <button type="button" id="btn-search-booking" class="btn btn-dark">Search</button>
+            </div>
+        </div>
+    </section>
+    <section class="downSection">
+        <table id="tbl-booking">
+            <tr>
+                <th>Booking Id</th>
+                <th>Date</th>
+                <th>Vehicle Id</th>
+                <th>Guide Id</th>
+                <th>Travel Id</th>
+                <th>Hotel Id</th>
+                <th>Payment</th>
+                <th>Payment Status</th>
+                <th>User</th>
+            </tr>
+            <tbody id="tbl-booking-tbody">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<script src="./assets/jquery/jquery-3.6.4.min%20(1).js"></script>
+
+<script type="module" src="./controller/HotelController.js"></script>
+<script type="module" src="./controller/CustomerController.js"></script>
+
+<script type="module" src="./controller/PackageCategoryController.js"></script>
+<script type="module" src="./controller/VehicleCategoryController.js"></script>
+<script type="module" src="./controller/TravelController.js"></script>
+<script type="module" src="./controller/GuideController.js"></script>
+<script type="module" src="./controller/BookingController.js"></script>
+<script type="module" src="./controller/VehicleBrandController.js"></script>
+
+
+<script>
+    $("#hotel-selector").click(() => {
+        if ($("#hotel-1stPage").css('display', 'block'))
+            $("#vehicle-2ndPage").css('display', 'none');
+        $("#guide-3rdPage").css('display', 'none');
+        $("#customers-4thPage").css('display', 'none');
+        $("#package-Category").css('display', 'none');
+        $("#travel-Category").css('display', 'none');
+        $("#vehicle-Category").css('display', 'none');
+        $("#booking-lastPage").css('display', 'none');
+    });
+
+
+    $("#vehicle-selector").click(() => {
+        $("#hotel-1stPage").css('display', 'none');
+        $("#vehicle-2ndPage").css('display', 'block');
+
+        $("#guide-3rdPage").css('display', 'none');
+        $("#customers-4thPage").css('display', 'none');
+        $("#package-Category").css('display', 'none');
+        $("#travel-Category").css('display', 'none');
+        $("#vehicle-Category").css('display', 'none');
+        $("#booking-lastPage").css('display', 'none');
+    });
+    $("#guide-selector").click(() => {
+        $("#hotel-1stPage").css('display', 'none');
+        $("#vehicle-2ndPage").css('display', 'none');
+        $("#guide-3rdPage").css('display', 'block');
+        $("#customers-4thPage").css('display', 'none');
+        $("#package-Category").css('display', 'none');
+        $("#travel-Category").css('display', 'none');
+        $("#vehicle-Category").css('display', 'none');
+        $("#booking-lastPage").css('display', 'none');
+    });
+    $("#customer-selector").click(() => {
+        $("#hotel-1stPage").css('display', 'none');
+        $("#vehicle-2ndPage").css('display', 'none');
+        $("#guide-3rdPage").css('display', 'none');
+        $("#customers-4thPage").css('display', 'block');
+        $("#package-Category").css('display', 'none');
+        $("#travel-Category").css('display', 'none');
+        $("#vehicle-Category").css('display', 'none');
+        $("#booking-lastPage").css('display', 'none');
+    });
+    $("#package-selector").click(() => {
+        $("#hotel-1stPage").css('display', 'none');
+        $("#vehicle-2ndPage").css('display', 'none');
+        $("#guide-3rdPage").css('display', 'none');
+        $("#customers-4thPage").css('display', 'none');
+        $("#package-Category").css('display', 'block');
+        $("#travel-Category").css('display', 'none');
+        $("#vehicle-Category").css('display', 'none');
+        $("#booking-lastPage").css('display', 'none');
+    });
+    $("#travel-selector").click(() => {
+        $("#hotel-1stPage").css('display', 'none');
+        $("#vehicle-2ndPage").css('display', 'none');
+        $("#guide-3rdPage").css('display', 'none');
+        $("#customers-4thPage").css('display', 'none');
+        $("#package-Category").css('display', 'none');
+        $("#travel-Category").css('display', 'block');
+        $("#vehicle-Category").css('display', 'none');
+        $("#booking-lastPage").css('display', 'none');
+    });
+    $("#vehicle-category-selector").click(() => {
+        $("#hotel-1stPage").css('display', 'none');
+        $("#vehicle-2ndPage").css('display', 'none');
+        $("#guide-3rdPage").css('display', 'none');
+        $("#customers-4thPage").css('display', 'none');
+        $("#package-Category").css('display', 'none');
+        $("#travel-Category").css('display', 'none');
+        $("#vehicle-Category").css('display', 'block');
+        $("#booking-lastPage").css('display', 'none');
+    });
+    $("#booking-selector").click(() => {
+        $("#hotel-1stPage").css('display', 'none');
+        $("#vehicle-2ndPage").css('display', 'none');
+        $("#guide-3rdPage").css('display', 'none');
+        $("#customers-4thPage").css('display', 'none');
+        $("#package-Category").css('display', 'none');
+        $("#travel-Category").css('display', 'none');
+        $("#vehicle-Category").css('display', 'none');
+        $("#booking-lastPage").css('display', 'block');
+    });
+
+
+</script>
+
+
+</body>
+</html>
