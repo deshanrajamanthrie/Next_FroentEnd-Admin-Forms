@@ -6,7 +6,7 @@ export class BookingController {
 
     }
 
-    static url = "http://deshanz-vivobook:8080/api/v1/booking/consume";
+    static url = "http://deshanz-vivobook:8080/api/v1/consume/booking";
 
 
     loadAllBooking() {

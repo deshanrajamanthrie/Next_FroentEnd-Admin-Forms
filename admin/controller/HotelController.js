@@ -7,9 +7,12 @@ export class HotelController {
         $("#btn-save-hotel").click(this.saveHotel.bind(this));
         $("#btn-delete-hotel").click(this.deleteHotel.bind(this));
         $("#btn-update-hotel").click(this.updateHotel.bind(this));
-    }
+      ;
 
-    static url = "http://deshanz-vivobook:8080/api/v1/hotel/consume";
+    }
+    static  auth=localStorage.getItem("auth");
+
+    static url = "http://deshanz-vivobook:8080/api/v1/consume/hotel";
 
     updateHotel() {
         let id = $("#txtHotel-id").val();
@@ -48,7 +51,8 @@ export class HotelController {
             url: HotelController.url,
             method: "PUT",
             contentType: "application/json",
-            data: JSON.stringify(Hotel),   //java Script obj convert To Json Object
+            data: JSON.stringify(Hotel),//java Script obj convert To Json Object
+
             success: function (resp) {
                 if (resp.code === 200) {
                     Swal.fire(resp.massage);
@@ -137,11 +141,12 @@ export class HotelController {
 
     /*Load All Data */
     loadAllHotels() {
-        const url = "http://deshanz-vivobook:8080/api/v1/hotel/consume";
+        const url = HotelController.url;
         $.ajax({
             url: url,
             method: "GET",
             dataType: "json",
+
             success: function (resp) {
                 console.log(resp.data);
                 $("#tbl-hotel-body").empty();

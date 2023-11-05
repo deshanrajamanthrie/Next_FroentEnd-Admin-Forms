@@ -12,7 +12,7 @@ export class GuideController {
 
     }
 
-    static url = "http://deshanz-vivobook:8080/api/v1/mainGuide";
+    static url = "http://deshanz-vivobook:8080/api/v1/consume/guide";
 
     searchGuide() {
         $.ajax({

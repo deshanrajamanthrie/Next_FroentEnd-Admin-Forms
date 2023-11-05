@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+<h2>Login Form</h2>
+
+<form>
+    <div class="imgcontainer">
+        <img src="admin/assets/img/user.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+        <label for="txt-adminEmail"><b>E Mail</b></label>
+        <input type="text" placeholder="Enter Username" id="txt-adminEmail" name="uname" required>
+
+        <label for="txtPasseword"><b>Password</b></label>
+        <input type="password" id="txtPasseword" placeholder="Enter Password" name="psw" required>
+
+        <button id="btn-adminLogin" type="button">Login</button>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+</form>
+
+<script src="admin/assets/jquery/jquery-3.6.4.min%20(1).js"></script>
+
+
+<script>
+
+    $("#btn-adminLogin").click(function () {
+
+        $(location).prop("href", "./admin/index.html");
+
+
+        let url = "http://deshanz-vivobook:8080/api/v1/consume/admin/search?email=" + $("#txt-adminEmail").val();
+           $.ajax({
+               url: url + "/myEmail?email=" + $("#txt-adminEmail").val(),
+               method: "GET",
+               dataType: "json",
+               headers: {
+                   "Authorization": "Basic " + window.btoa($("#txt-adminEmail").val() + ":" + $("#txtPasseword").val())
+               },
+               success: function (data, status, resp) {
+                   alert("Success");
+                   let autho = resp.getResponseHeader("Authorization");
+                   localStorage.setItem("auth", autho);
+
+                   console.log(data.code);
+                   if (data.code === 200) {
+
+                       Swal.fire(
+                           'Login Successfully!',
+                           'Enjoy Next Travel',
+                           'success'
+                       );
+                       $(location).prop("href", "./admin/index.html");
+                   }
+
+               },
+           });
+    })
+
+
+</script>
+</body>
+</html>

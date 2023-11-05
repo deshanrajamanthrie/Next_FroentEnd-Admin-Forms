@@ -5,7 +5,7 @@ export class TravelController {
         this.loadAllTravel();
     }
 
-    static url = "http://deshanz-vivobook:8080/api/v1/travel/consume";
+    static url = "http://deshanz-vivobook:8080/api/v1/consume/travel";
 
     loadAllTravel() {
         $.ajax({

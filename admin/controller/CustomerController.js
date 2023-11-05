@@ -7,7 +7,7 @@ export class CustomerController {
 
     }
 
-    static url = "http://deshanz-vivobook:8080/api/v1/consume/users";
+    static url = "http://deshanz-vivobook:8080/api/v1/consume/user";
 
     loadAllCustomer() {
         $.ajax({

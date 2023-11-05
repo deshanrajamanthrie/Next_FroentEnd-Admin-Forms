@@ -6,8 +6,9 @@ export class VehicleCategoryController {
         $("#btn-save-vehicleCategory").click(this.saveVehicleCategory.bind(this));
         $("#btn-update-vehicleCategory").click(this.updateVehicleCategory.bind(this));
         $("#btn-delete-vehicleCategory").click(this.deleteVehicleCategory.bind(this));
-
+        this.jwtToken = localStorage.getItem("auth");
     }
+
 
     /*Update=============================================*/
     updateVehicleCategory() {
@@ -19,13 +20,16 @@ export class VehicleCategoryController {
         let vehicleCategory = new VehicleCategory(id, type);
         if (vehicleCategory.categoryType !== "") {
 
-            console.log(vehicleCategory)
+            console.log(vehicleCategory);
 
             $.ajax({
-                url: "http://localhost:8080/api/v1/vehicleCategory/consume",
+                url: "http://localhost:8080/api/v1/consume/vehicleCategory",
                 method: "PUT",
                 contentType: "application/json",
                 dataType: "json",
+                headers: {
+                    "Authorization": this.jwtToken
+                },
                 data: JSON.stringify(vehicleCategory),
                 success: function (resp) {
                     if (resp.code === 200) {
@@ -52,7 +56,7 @@ export class VehicleCategoryController {
         if (vehicleCategory.categoryType !== "") {
             console.log(vehicleCategory)
             $.ajax({
-                    url: "http://localhost:8080/api/v1/vehicleCategory/consume",
+                    url: "http://localhost:8080/api/v1/consume/vehicleCategory",
                     method: "POST",
                     contentType: "application/json",
                     dataType: "json",
@@ -79,7 +83,7 @@ export class VehicleCategoryController {
     }
 
     getAllVehicleCategory() {
-        let url = "http://deshanz-vivobook:8080/api/v1/vehicleCategory/consume";
+        let url = "http://localhost:8080/api/v1/consume/vehicleCategory";
         $.ajax({
             url: url,
             method: "GET",
@@ -107,7 +111,7 @@ export class VehicleCategoryController {
     deleteVehicleCategory() {
         let type = $("#txtVehicleCategoryType").val();
 
-        let url = "http://deshanz-vivobook:8080/api/v1/vehicleCategory/consume?type=";
+        let url = "http://deshanz-vivobook:8080/api/v1/consume/vehicleCategory?type=";
         $.ajax({
             url: url + type,
             method: "DELETE",
@@ -131,7 +135,7 @@ export class VehicleCategoryController {
 
     }
 
-    cleartextField(){
+    cleartextField() {
         $("#txtVehicleCategoryType").val("");
         $("#txtVehicleCategoryId").val("")
     }
